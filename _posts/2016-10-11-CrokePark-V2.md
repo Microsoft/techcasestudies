@@ -1,7 +1,5 @@
 # Sound and Weather Data Monitoring within a Smart Stadium
-
  
-
 ## Executive Summary
 
 Boasting a capacity for 82,300 people, Croke Park stadium is one of the largest stadiums in Europe. As the national home to the Gaelic games and headquarters the Gaelic Athletic Association (GAA), it hosts numerous high-profile international sporting, cultural, and music events. And now, within this urban test bed infrastructure lies the perfect Internet of Things (IoT) microcosm: a true “smart stadium”. The Croke Park Smart Stadium project is a collaboration between GAA, Dublin City University (DCU), Intel, and Microsoft to further innovation around the IOT. Intel has strategically positioned sensors and gateways throughout the stadium to enable a range of environmental monitoring, safety, and fan experience use cases. These edge gateways compute and communicate with the sensors, collecting enormous amounts of diverse types of data and storing them on the Microsoft Azure cloud platform.
@@ -38,7 +36,7 @@ An automated solution to this problem solves a number of issues for the GAA:
 
 The ability to monitor sound plays a part in enhancing the fan experience, as well. The experimental system developed to allow the park to measure the averaged noise levels outside the stadium for compliance was repurposed to create friendly fan competition within the stadium bowl. Strategically positioned microphones capture maximum decibel peaks in crowd cheering levels and gateways send this information to the Azure IoT hub. Data is presented on a dashboard to the staff, who in turn project it on a stadium screen enabling them to “gamify” the data and identify which section is making the most noise. A great example of this is the data that was presented during the 2016 All-Ireland Hurling and Football Finals which compared the noise levels at particular points in the games: key scores.
 
-<img src="./media/image1.jpeg" />
+<img src="../images/crokepark/image1.jpeg" />
 
 ### Health and Safety
 
@@ -105,17 +103,17 @@ The fundamental premise of the technical solution was to design with the followi
 
 The complete solution is made up of a number of components, both within the stadium and in the cloud. The following section details these components and explains how they interact with the architectural principles above in mind.
 
-<img src="./media/image2.png"  />
+<img src="../images/crokepark/image2.png"  />
 
 #### Sensors and Gateway Equipment
 
 In order to capture noise levels throughout the stadium, sound monitoring equipment was positioned at four points. Two within the stadium at the stands and two outside the stadium. This allowed us to measure crowd cheer within the stadium but also compare this to external sound to monitor noise pollution for neighbouring areas. The photo below shows the position of one of the Sonitus microphones.
 
-<img src="./media/image3.jpeg"  />
+<img src="../images/crokepark/image3.jpeg"  />
 
 A weather station was also deployed to measure wind speed and other data and was positioned at the top of the stadium between the Cusack and Davin stands. The below diagram shows a schematic of all of the different sensor equipment deployed as well as the gateways.
 
-<img src="./media/image4.png" width="577" height="360" />
+<img src="../images/crokepark/image4.png" width="577" height="360" />
 
 The job of the gateways are to collect the relevant sensor data and communicate the data back to a central store. To connect to the gateways each piece of monitoring equipment is connected to a *Seedstudio RFBee v1.1* using simplex communication. Each unit is setup in Transceive mode (Send and receive), Baud rate 9600 8N1 and no flow control. These units are attached via USB connection and use a *UartSBee* adapter. The Data is transferred in wireless serial mode using UART between the RFBee unit and the Gateway.
 
@@ -127,9 +125,9 @@ This initial work done, each gateway then sends data to the master gateway which
 
 The Azure IoT hub is a cloud service responsible for device registration, securing the data transfer and high volume data ingestion. In this case the master gateway is the only device registered with the hub and a unique device id is passed in all payloads so we can establish which gateway the data originated from. This means that the IoT hub is sent all data collected, including weather and sound data. The data format must be JSON and is shown below. To connect with the IoT Hub the master gateway can send data over MQTT, IMQP or HTTP and must use an encrypted tunnel. There are a number of *SDKs available* but in our case LUA scripts were used to connect directly with the REST API and sent the data over HTTPS. The below diagram shows a snippet of this LUA script as well as the JSON structure for the payload.
 
-<img src="./media/image5.png" />
+<img src="../images/crokepark/image5.png" />
 
-<img src="./media/image6.png" />
+<img src="../images/crokepark/image6.png" />
 
 ### Stream Analytics
 
@@ -137,20 +135,20 @@ Once data has been ingested into the IoT Hub, Stream Analytics is used to analys
 
 | Stream Analytics Job            | Input  | Outputs    | Queries                                                    | Description                                                                                                                                                     |
 |---------------------------------|--------|------------|------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| CrokeParkStreamAnalytics        | IoTHub | sql        | <img src="./media/image7.png" />                           | Sends all sound data points to a sql database table. The LAMax values are used to evaluate intensity of crowd cheer.                                            |
-|                                 | IoTHub | sqlrolling | <img src="./media/image8.png" />                           | Retrieve a rolling average of LAEQ values to determine a normalised view of sound data for noise pollution. The average is calculated as a logarithmic average. |
-|                                 | IoTHub | soundblob  | <img src="./media/image9.png" />                           | All data points are sent to blob storage for diagnosis.                                                                                                         |
-| CrokeParkWeatherStreamAnalytics | IoTHub | Sql        | <img src="./media/image10.png" />                          | Raw weather data is sent to a sql table                                                                                                                         |
+| CrokeParkStreamAnalytics        | IoTHub | sql        | <img src="../images/crokepark/image7.png" />                           | Sends all sound data points to a sql database table. The LAMax values are used to evaluate intensity of crowd cheer.                                            |
+|                                 | IoTHub | sqlrolling | <img src="../images/crokepark/image8.png" />                           | Retrieve a rolling average of LAEQ values to determine a normalised view of sound data for noise pollution. The average is calculated as a logarithmic average. |
+|                                 | IoTHub | soundblob  | <img src="../images/crokepark/image9.png" />                           | All data points are sent to blob storage for diagnosis.                                                                                                         |
+| CrokeParkWeatherStreamAnalytics | IoTHub | Sql        | <img src="../images/crokepark/image10.png" />                          | Raw weather data is sent to a sql table                                                                                                                         |
 
 ### SQL Database
 
 An Azure sql database is used to store relevant data for analysis or display. The SQL Database is a fully managed relational database service hosted on Azure and offers 99.99% SLA for availability which helps this solution scale to a fully production system. The database also supports 100 database transaction units but can scale to 4000 units when required. The DTU is a blended measure of performance that can be used to get predictable performance.
 
-<img src="./media/image11.png"  />
+<img src="../images/crokepark/image11.png"  />
 
 The database tables are populated by the stream analytics jobs described above.
 
-<img src="./media/image12.png"  />
+<img src="../images/crokepark/image12.png"  />
 
 ### BLOB Storage
 
@@ -158,13 +156,13 @@ As well as storing the data in a structured store like SQL Database we have also
 
 The image below shows how the storage account can be monitored including data inserts over time and egress of data. For the purposes of this pilot a geo-replication storage account was used. This meant that all data was replicated 3 times within the Dublin Azure region but also replicated out to the Netherlands region in case of a disaster. This is important as this forms the basis of our disaster recovery plan. If something happens in Dublin we can rebuild the entire system using the data stored in this BLOB account. Even if Dublin were completely down due to some natural disaster all data could be retrieved from the Netherlands.
 
-<img src="./media/image13.png"  />
+<img src="../images/crokepark/image13.png"  />
 
 ### Web API
 
 The Web API application was created in Visual Studio 2015 and contains a number of REST APIs to access the data stored within the SQL Database. This REST api is then used by front end dashboards or apps that need access to any of the data.
 
-<img src="./media/image14.png"  />
+<img src="../images/crokepark/image14.png"  />
 
 ### Web Dashboard
 
@@ -178,11 +176,11 @@ Two Power BI reports were created and uploaded to an Azure Power BI Workspace. B
 
 Diagrams below show the dashboard interfaces:
 
-<img src="./media/image15.png"  />
+<img src="../images/crokepark/image15.png"  />
 
-<img src="./media/image16.png"  />
+<img src="../images/crokepark/image16.png"  />
 
-<img src="./media/image17.png" />
+<img src="../images/crokepark/image17.png" />
 
 ## Conclusions
 
