@@ -113,7 +113,7 @@ In order to capture noise levels throughout the stadium, sound monitoring equipm
 
 A weather station was also deployed to measure wind speed and other data and was positioned at the top of the stadium between the Cusack and Davin stands. The below diagram shows a schematic of all of the different sensor equipment deployed as well as the gateways.
 
-<img src="../images/crokepark/image4.png" width="577" height="360" />
+<img src="../images/crokepark/image4.png"  />
 
 The job of the gateways are to collect the relevant sensor data and communicate the data back to a central store. To connect to the gateways each piece of monitoring equipment is connected to a *Seedstudio RFBee v1.1* using simplex communication. Each unit is setup in Transceive mode (Send and receive), Baud rate 9600 8N1 and no flow control. These units are attached via USB connection and use a *UartSBee* adapter. The Data is transferred in wireless serial mode using UART between the RFBee unit and the Gateway.
 
