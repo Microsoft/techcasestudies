@@ -23,7 +23,7 @@ Begin with an intro statement with the following details:
   Small airplane reservation system. They already have a good leadtime for web deployment. However, they also want to have blue green deployment
   and automated mobile CI/CD pipeline.
 
-  `![Architecture]({{site.baseurl}}/images/2016-11-31-SetouchiHD/architecture.jpg)`  
+  ![Architecture]({{site.baseurl}}/images/2016-11-31-SetouchiHD/architecture.jpg)
 
 - Key technologies used:
   Azure Web/Api apps with C# (Infrastructure as Code) 
@@ -31,7 +31,7 @@ Begin with an intro statement with the following details:
   Swift(iOS), Testflight, and Fastlane (Mobile DevOps)
   Goal integration with VSTS (Telemetry)
 
-  `![Hackfest Members]({{site.baseurl}}/images/2016-11-31-SetouchiHD/allmembers.jpg)`  
+  ![Hackfest Members]({{site.baseurl}}/images/2016-11-31-SetouchiHD/allmembers.jpg)  
 
 - Core Team: 
   Geovanne Borges Bertonha @geobertonha - Software Architect/DevOps
@@ -75,9 +75,9 @@ they didn't predict a lot in advance. When we had a value stream mapping, they j
 Microservices. They gradually grow their development scope. They started with Web application development, then mobile, then Microservices... and so on.
 We couldn't see whole picture at that time. However, we discussed thier development process of the last time, and discuss with them. 
 
-`![Value Stream Mapping Discussion]({{site.baseurl}}/images/2016-11-31-SetouchiHD/VSMdiscussion.jpg)`  
+![Value Stream Mapping Discussion]({{site.baseurl}}/images/2016-11-31-SetouchiHD/VSMdiscussion.jpg)  
 
-`![Value Stream Mapping Discussion]({{site.baseurl}}/images/2016-11-31-SetouchiHD/ValueStreamMapping.png)`  
+![Value Stream Mapping Discussion]({{site.baseurl}}/images/2016-11-31-SetouchiHD/ValueStreamMapping.png)  
 
 
 The leadtime of the web site is not bad. 2days. My Recommendation is Release Management. However, they already good at the leadtime, I also recommend 
@@ -97,7 +97,7 @@ We started discussing about the blue green deployment. The blue green deployment
 slot and swap functionality. It is really fantastic feature. Also, the Visual Studio Team Services supports deployment and swap functionality by the tasks.
 We can easy to configure these pipeline. 
 
-`![Swap deployment slots]({{site.baseurl}}/images/2016-11-31-SetouchiHD/deploymentslot.jpg)`  
+![Swap deployment slots]({{site.baseurl}}/images/2016-11-31-SetouchiHD/deploymentslot.jpg)  
 
 
  However, the problem is the noizy neighbour problem. Naoki (NEO) Sato toled them a solution for this problem. We solve this for adding an App Service Plan.
@@ -105,7 +105,7 @@ We can easy to configure these pipeline.
  means these slots have different App Service Plan. Then Web/Api apps, allocate different resources among the slots. 
 Using this technique, you can avoid noizy neighbour problem. 
 
-  `![App Service Plan]({{site.baseurl}}/images/2016-11-31-SetouchiHD/AppServicePlan.jpg)`
+  ![App Service Plan]({{site.baseurl}}/images/2016-11-31-SetouchiHD/AppServicePlan.jpg)
 
 As a practice of Infrastructure as Code, we use the ARM template after finishing configure resource via Azure Portal. Before deploy it, we can download
 the template and deployment script. It is totally easy way to achieve Infrastructure as Code on Azure.
@@ -117,7 +117,7 @@ the template and deployment script. It is totally easy way to achieve Infrastruc
 We wanted to automate whole process. However, they couldn't achieve only one thing for web deployment. After successfully released, they need to click
 `Retain idefinitely` flag to keep the successfully deployed artifact. 
 
-  `![Enable Retain idefinitely]({{site.baseurl}}/images/2016-11-31-SetouchiHD/RetainIndifinitely.jpg)`
+  ![Enable Retain idefinitely]({{site.baseurl}}/images/2016-11-31-SetouchiHD/RetainIndifinitely.jpg)
 
   We have the VSTS REST-API for this purpose. Just update the status of a release. The best way to solve this problem is, using `System.AccessToken` variables to 
 access the VSTS REST-API. Some uservoice comment said that it is OK for release management. However, it didn't work. Insted, we use Personal Access Token, for 
@@ -130,11 +130,11 @@ curl --request PATCH -H "Accept: application/json" -H "Content-type: application
 
   Then, you need to set the variables of your personal access token on your Release definition.
 
-  `![Personal Access Token]({{site.baseurl}}/images/2016-11-31-SetouchiHD/PersonalAccessToken.jpg)`
+  ![Personal Access Token]({{site.baseurl}}/images/2016-11-31-SetouchiHD/PersonalAccessToken.jpg)
 
 Finally, you can use Run Script task and run the bat file. If you use Linux or Mac for build machine, you can use same technique for shell script task.  
 
-  `![Run Script]({{site.baseurl}}/images/2016-11-31-SetouchiHD/RunScript.jpg)`
+  ![Run Script]({{site.baseurl}}/images/2016-11-31-SetouchiHD/RunScript.jpg)
 
 ### 4. iOS deployment pipeline automation
 
@@ -143,7 +143,7 @@ include every artifacts into an ipa file. We need to change the connection strin
 three times. Generally speaking, you need to build one time, then you need to pass the artifacts into the Release. For this reason, they only had one 
 build pipeline.
 
-  `![Initial Build Pipeline]({{site.baseurl}}/images/2016-11-31-SetouchiHD/InitialBuildPipeline.png)`
+  ![Initial Build Pipeline]({{site.baseurl}}/images/2016-11-31-SetouchiHD/InitialBuildPipeline.png)
 
 We improve this step by step. First of all, we build only for dev evnironment on the Build definition as CI. When you change the Git repository, the VSTS
 fire the Build definition. We don't want to build ipas everytime for QA/Staging/Production environment. Then we separate the deployment process into Release
@@ -154,12 +154,12 @@ However, the problem is the upload time. Especially ipa is very big. It took a l
  Also, sometimes, we had a problem to restore pod files. When we used `pod update` command, sometimes it causes timeout to restore the pod. Once we use `pod install` command instead,
  the time is become within 14 second. 
 
-  `![Improved Build Pipelline]({{site.baseurl}}/images/2016-11-31-SetouchiHD/ImprovedBuildPipeline.png)`
+  ![Improved Build Pipelline]({{site.baseurl}}/images/2016-11-31-SetouchiHD/ImprovedBuildPipeline.png)
 
 Then we create some release definition to adopt this strategy. We need to re-build/test on the release pipeline. It is agains the rule of continuous delivery. 
 However, it is better solution for the ipa build. Because we already finish pod restore one the build definition. And we share it via drop folder. 
 
-   `![iOS Release Pipeline]({{site.baseurl}}/images/2016-11-31-SetouchiHD/ReleaseiOS.jpg)`
+   ![iOS Release Pipeline]({{site.baseurl}}/images/2016-11-31-SetouchiHD/ReleaseiOS.jpg)
 
 The next problem is the automated deployment for Test flight and automated submit into the Apple Store. They are going to use the [Hockey Apps](https://hockeyapp.net/) for Android Deployment for testing. 
 Currently, they use TestFlight. We need to try Test Flight deployment. We use the [fastlane](https://fastlane.tools/), which helps us to automate iOS/Android deployment and release.
@@ -201,7 +201,7 @@ end
 Also, we need to change the Firstfile depend on the environment. We create one more artifact directory, and put three Fastfiles. After accepting these on the 
 Release, we just copy it to Fastfile, according to the environment. Now we were ready to deploy automatically!
 
-  `![Fastlane file structure]({{site.baseurl}}/images/2016-11-31-SetouchiHD/Fastlanefiles.jpg)`
+  ![Fastlane file structure]({{site.baseurl}}/images/2016-11-31-SetouchiHD/Fastlanefiles.jpg)
 
 
 Then the slack told us it is successful. The Fast file dosen't inlcude submit into the Apple Store, however, it is very easy. The [Apple Store task](https://marketplace.visualstudio.com/items?itemName=ms-vsclient.app-store)
