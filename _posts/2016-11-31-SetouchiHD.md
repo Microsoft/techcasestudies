@@ -57,7 +57,7 @@ Infrasturcture: [Creationline](http://www.creationline.com/en/)
  
 ## Problem statement ##
 
-They have a great knowledge of Agile and enugh technical skills. However, they were new to Azure and VSTS. Also, they also had a lot of manual 
+They have a great knowledge of Agile and enugh technical skills. However, they were new to Azure and VSTS. Also, they had a lot of manual 
 process. This is partly because they had lean approach. They have an enough knowedge to automate it however, they intentionally didn't do it. 
 Because this is a new project. Unless really need it, they didn't automate it. I think this is the right approach. However, Mobile pipeline 
 automation with VSTS and Blue green deployment on Azure are biggest issue for them. 
@@ -234,6 +234,17 @@ Also, they are very pleased when I introduce the "Test & Feedback" feature on th
 We automated a lot. Web/Api Swap, CI/CD pipeline for Web/Api apps, and iOS CI/CD pipeline using Fastlane. They can measure the Buiness outcome using the
 Goal system. After the hackfest the business outcome increse ...% and also, they can enable 10-deploys-per-day environment on their Web/Api apps.
 It is just two days hacking among our team. Most importantly, we were really enjoyed this hackfests.  
+
+Here is customer comments for this hackfest. 
+
+*"It's amazing the level that Microsoft has achieved in terms of Devops, and this hackfest was really fantastic. It's impressive thinking that 2 hacking days can help us saving lots of days of productivity."* - Geovanne Borges Bertonha, Software Architect
+
+*"The Hackfest was very productive and helpful, we've learned a lot of things and improved our continuous integration flow. Amazing. Hope we can have it again someday. Great job!"* - Andre Ogura, iOS Specialist
+
+*"I did like very much of the hackfest. Was an opportunity for improve all knowledges and merge ideas. New solutions always are born in this events."* - Leandro de Lima Machado, Software Engineer
+
+*"I had the opportunity to know more about Azure and VSTS. It was a great experience."* - Andre Santos Kano, Software Engineer
+
 
 ## Source code
 
