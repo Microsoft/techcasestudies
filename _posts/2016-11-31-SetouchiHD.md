@@ -20,12 +20,14 @@ approach conbined with Azure technologies. However, they are new to Azure, they 
 Begin with an intro statement with the following details:
 
 - Solution overview: 
+
   Small airplane reservation system. They already have a good leadtime for web deployment. However, they also want to have blue green deployment
   and automated mobile CI/CD pipeline.
 
   ![Architecture]({{site.baseurl}}/images/2016-11-31-SetouchiHD/architecture.jpg)
 
 - Key technologies used:
+
   Azure Web/Api apps with C# (Infrastructure as Code) 
   Visual Studio Team Services (CI/CD/Release Management)
   Swift(iOS), Testflight, and Fastlane (Mobile DevOps)
@@ -34,14 +36,15 @@ Begin with an intro statement with the following details:
   ![Hackfest Members]({{site.baseurl}}/images/2016-11-31-SetouchiHD/allmembers.jpg)  
 
 - Core Team: 
-  Geovanne Borges Bertonha @geobertonha - Software Architect/DevOps
-  Andre Ogura Dantas  - Software Architect/ iOS Specialist
-  Leandro de Lima Machado - Software Engineer
-  Andre Santos Kano - @drekano - Software Engineer
-  Tadahiro Yasuda @yasudatadahiro - Creationline
-  Daisuke Ono - Creationline
-  Tsuyoshi Ushio @sandayuu - Technical Evangelist - DevOPs
-  Naoki (NEO) Sato @satonaoki - Senior Technical Evangelist - Azure General
+
+  * Geovanne Borges Bertonha @geobertonha - Software Architect/DevOps
+  * Andre Ogura Dantas  - Software Architect/ iOS Specialist
+  * Leandro de Lima Machado - Software Engineer
+  * Andre Santos Kano - @drekano - Software Engineer
+  * Tadahiro Yasuda @yasudatadahiro - Creationline
+  * Daisuke Ono - Creationline
+  * Tsuyoshi Ushio @sandayuu - Technical Evangelist - DevOps
+  * Naoki (NEO) Sato @satonaoki - Senior Technical Evangelist - Azure General
 
 ## Customer profile ##
 
@@ -237,14 +240,13 @@ It is just two days hacking among our team. Most importantly, we were really enj
 
 Here is customer comments for this hackfest. 
 
-*"It's amazing the level that Microsoft has achieved in terms of Devops, and this hackfest was really fantastic. It's impressive thinking that 2 hacking days can help us saving lots of days of productivity."* - Geovanne Borges Bertonha, Software Architect
+*"It's amazing the level that Microsoft has achieved in terms of Devops, and this hackfest was really fantastic. It's impressive thinking that 2 hacking days can help us saving lots of days of productivity."* - **Geovanne Borges Bertonha, Software Architect**
 
-*"The Hackfest was very productive and helpful, we've learned a lot of things and improved our continuous integration flow. Amazing. Hope we can have it again someday. Great job!"* - Andre Ogura, iOS Specialist
+*"The Hackfest was very productive and helpful, we've learned a lot of things and improved our continuous integration flow. Amazing. Hope we can have it again someday. Great job!"* - **Andre Ogura, iOS Specialist**
 
-*"I did like very much of the hackfest. Was an opportunity for improve all knowledges and merge ideas. New solutions always are born in this events."* - Leandro de Lima Machado, Software Engineer
+*"I did like very much of the hackfest. Was an opportunity for improve all knowledges and merge ideas. New solutions always are born in this events."* - **Leandro de Lima Machado, Software Engineer**
 
-*"I had the opportunity to know more about Azure and VSTS. It was a great experience."* - Andre Santos Kano, Software Engineer
-
+*"I had the opportunity to know more about Azure and VSTS. It was a great experience."* - **Andre Santos Kano, Software Engineer**
 
 ## Source code
 
