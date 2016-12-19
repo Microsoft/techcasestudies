@@ -248,7 +248,4 @@ Here is customer comments for this hackfest.
 
 *"I had the opportunity to know more about Azure and VSTS. It was a great experience."* - **Andre Santos Kano, Software Engineer**
 
-## Source code
-
-## Additional resources
 
