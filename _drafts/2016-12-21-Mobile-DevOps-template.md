@@ -2,7 +2,7 @@
 layout: post
 title:  "Add title with customer name here"
 author: "Add author name here"
-author-link: "#"
+author-link: "# Add Twitter link here"
 #author-image: "{{ site.baseurl }}/images/authors/photo.jpg"
 date:   2016-05-19
 categories: [Mobile DevOps]
@@ -32,7 +32,7 @@ This section will contain general information about the customer, including the 
 
 This section will define the problem(s)/challenges that the customer wants to address with the hackfest. It should also describe how the problems have been identified and what the current situation is (including metrics like the lead time).
  
-*If you’d really like to make your write-up pop, include a customer quote that highlights the customer’s problem(s)/challenges.*
+*If you’d really like to make your write-up pop, include a customer quote that highlights the customer’s problem(s)/challenges. Attribute all quotes with Name, Title, Company.*
  
 ## Solution, steps, and delivery ##
 
@@ -53,7 +53,7 @@ This section should include the following details:
 - Learnings from the Microsoft team and the customer team.
 
 
-*If you’d really like to make your write-up pop, include a customer quote that highlights the solution.*
+*If you’d really like to make your write-up pop, include a customer quote that highlights the solution. Attribute all quotes with Name, Title, Company.*
 
 **Directions for adding images:**
 
@@ -86,7 +86,7 @@ This section will briefly summarize the technical story with the following detai
 
   - Details on how the customer plans to proceed or what more they hope to accomplish.
 
-*If you’d really like to make your write-up pop, include a customer quote highlighting impact, benefits, general lessons, and/or opportunities.*
+*If you’d really like to make your write-up pop, include a customer quote highlighting impact, benefits, general lessons, and/or opportunities. Attribute all quotes with Name, Title, Company.*
 
 
 

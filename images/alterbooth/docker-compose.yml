@@ -1,0 +1,46 @@
+version: '2'
+
+services:
+  blue:
+    image: XXXXXXXXXX:260
+    environment:
+      - VIRTUAL_HOST=XXXXXXXXXX
+      - VIRTUAL_PORT=5000
+      - "affinity:container!=stgmysauce_blue_*"
+      - ASPNETCORE_ENVIRONMENT=Staging
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - front
+      - back
+    restart: always
+    logging:
+      driver: fluentd
+      options:
+        tag: stg.acs.mysauce
+
+  green:
+    image: XXXXXXXXXX:261
+    environment:
+      - VIRTUAL_HOST=XXXXXXXXXX
+      - VIRTUAL_PORT=5000
+      - "affinity:container!=stgmysauce_green_*"
+      - ASPNETCORE_ENVIRONMENT=Staging
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - front
+      - back
+    restart: always
+    logging:
+      driver: fluentd
+      options:
+        tag: stg.acs.mysauce
+
+networks:
+  front:
+    external:
+      name: "network_front"
+  back:
+    external:
+      name: "network_back"

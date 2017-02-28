@@ -2,7 +2,7 @@
 layout: post
 title:  "Add title with customer name here"
 author: "Add author name here"
-author-link: "#"
+author-link: "# Add Twitter link here"
 #author-image: "{{ site.baseurl }}/images/authors/photo.jpg"
 date:   2016-11-15
 categories: [Power BI Embedded]
@@ -41,7 +41,7 @@ This section will define the problem(s)/challenges that the customer wants to ad
 
 Describe the consumer (end user) of the dashboard. 
  
-*If you’d really like to make your write-up pop, include a customer quote that highlights the customer’s problem(s)/challenges.*
+*If you’d really like to make your write-up pop, include a customer quote that highlights the customer’s problem(s)/challenges. Attribute all quotes with Name, Title, Company.*
 
  
 ## Solution, steps, and delivery ##
@@ -65,7 +65,7 @@ This section should include the following details:
 
   ![Power BI Embedded Architecture Diagram](/images/templates/powerbiearchitecture.png)
 
-*If you’d really like to make your write-up pop, include a customer quote that highlights the solution.*
+*If you’d really like to make your write-up pop, include a customer quote that highlights the solution. Attribute all quotes with Name, Title, Company.*
 
 **Directions for adding images:**
 
@@ -98,7 +98,7 @@ This section will briefly summarize the technical story with the following detai
 
   - Details on how the customer plans to proceed or what more they hope to accomplish.
 
-*If you’d really like to make your write-up pop, include a customer quote highlighting impact, benefits, general lessons, and/or opportunities.*
+*If you’d really like to make your write-up pop, include a customer quote highlighting impact, benefits, general lessons, and/or opportunities. Attribute all quotes with Name, Title, Company.*
 
 
 ## Additional resources ##

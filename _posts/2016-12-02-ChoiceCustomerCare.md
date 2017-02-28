@@ -5,7 +5,7 @@ author: "Sarah Sexton"
 author-link: "#"
 #author-image: "{{ site.baseurl }}/images/authors/sarahse.jpg"
 date: 2017-01-20
-categories: [Mobile Application Development with Xamarin]
+categories: [Mobile Application Development with Xamarin, Mobile DevOps]
 color: "blue"
 #image: "{{ site.baseurl }}/images/CCC.png" #should be ~350px tall
 excerpt: Microsoft teamed up with Choice Customer Care to streamline the process of patients requesting help in hospital emergency rooms via a web-based API and a Xamarin.Forms cross-platform mobile application. This article describes the development process and the outcomes.
@@ -13,9 +13,11 @@ verticals: [Healthcare]
 language: [English]
 ---
 
-A team from Microsoft and Choice Customer Care LLC set out to create a system that would improve the process of hospital patients requesting help from nurses and doctors. In most hospitals today, patients press a call button when they need help, activating a light at the nurses station so that a healthcare worker can go find out what is needed. Sometimes that worker can fulfill the request; other times they must find a different worker to fulfill it. This system is inefficient and difficult to track.
+A team from Microsoft and Choice Customer Care LLC set out to create a system that would improve the process of hospital patients requesting help from nurses and doctors. 
 
-Along with the initial architecture and version of the Choice Customer Care applications and web services, Microsoft assisted Choice Customer Care in creating a value stream map (VSM) to set a baseline for their software development lifecycle (SDL), in order to highlight existing and future DevOps best practices.
+In most hospitals today, patients press a call button when they need help, activating a light at the nurses station so that a healthcare worker can go find out what is needed. Sometimes that worker can fulfill the request; other times they must find a different worker to fulfill it. This system is inefficient and difficult to track.
+
+Along with the initial architecture and version of the Choice Customer Care applications and web services, Microsoft assisted Choice Customer Care in creating a value stream map (VSM) to set a baseline for its software development lifecycle (SDL), in order to highlight existing and future DevOps best practices.
 
 **Core team:** 
 
@@ -30,7 +32,8 @@ Along with the initial architecture and version of the Choice Customer Care appl
 * Martin Schray ([@mschray](https://twitter.com/mschray)) – Senior Technical Evangelist, Microsoft
 * Nick Landry ([@ActiveNick](https://twitter.com/ActiveNick)) – Senior Technical Evangelist, Microsoft
 * Eric Rozell ([@EricRozell](https://twitter.com/EricRozell)) – Software Development Engineer, Microsoft
-* Oren Novotny ([@Onovotny](https://twitter.com/onovotny)) – Principal Architect at BlueMetal, Xamarin Most Valuable Professional (MVP)  
+* Oren Novotny ([@Onovotny](https://twitter.com/onovotny)) – Principal Architect at BlueMetal, Xamarin Most Valuable Professional (MVP)
+
 <img src="{{ site.baseurl }}/images/CCCphotos2.png" width="500">
 
 
@@ -57,7 +60,7 @@ If a hospital patient presses a nurse call button and waits more than 30 minutes
 
 - Hospital reimbursement from the government is growing more and more dependent on quality measures, including statistics such as patient satisfaction. 
 - Medicare and Medicaid hold a pool of money for reimbursement to hospitals. Hospitals with high-ranking patient satisfaction scores get more reimbursement money from the government than low-ranking hospitals.
-- One of the biggest issues in patient satisfaction currently, according to [PressGaney](http://www.pressganey.com) and other major surveys, is the fact that patients don't feel like their needs are being met. 
+- One of the biggest issues in patient satisfaction currently, according to [PressGaney](http://www.pressganey.com) and other major surveys, is that patients don't feel as though their needs are being met. 
 
 >*"I came up with the idea for my company when it came to my attention that a little old lady under my staff's care had wet herself in bed because her requests for bathroom assistance had not been answered for over half an hour." - Mark Mitchell, CEO*
 
@@ -78,7 +81,7 @@ The diagram below shows the components working together.
 ![Architecture Diagram]({{ site.baseurl }}/images/CCCArchDiagram.png)
 
 
-Choice Customer Care does not plan to use the App Store to distribute the tablet and phone applications to the devices. By opening up distribution of internal builds to beta testers through HockeyApp's beta distribution mechanism, CCC can scale testing to beta users regardless of location. HockeyApp will also allow them to bypass slower official beta distribution channels provided by the Android and iOS stores. 
+Choice Customer Care does not plan to use the App Store to distribute the tablet and phone applications to the devices. By opening up distribution of internal builds to beta testers through HockeyApp's beta distribution mechanism, CCC can scale testing to beta users regardless of location. HockeyApp also allows them to bypass slower official beta distribution channels provided by the Android and iOS stores. 
 
 **Azure cloud application**
 
@@ -95,7 +98,7 @@ The cloud application notifies healthcare workers of patients' requests, via a m
 
 The tablet application is built to be installed on an Android tablet that is affixed next to a patient’s bed. 
 
-When a patient requires assistance, they press the icon corresponding to the type of assistance needed (for example, medical emergency, non-medical emergency, bathroom, water). Pressing the button calls a web service that routes the request based on the type of request and which healthcare worker is currently assigned to that bed. This sends a request notification to the mobile app of the worker responsible, according to the business logic. 
+When patients require assistance, they press the icon corresponding to the type of assistance needed (for example, medical emergency, non-medical emergency, bathroom, water). Pressing the button calls a web service that routes the request based on the type of request and which healthcare worker is currently assigned to that bed. This sends a request notification to the mobile app of the worker responsible, according to the business logic. 
 
 The tablet app broadcasts a push notification only to the specific worker responsible for that tablet. Workers must go to the patient's bedside to accept or deny the notification.
 
@@ -103,7 +106,7 @@ We created a new Xamarin.Forms Shared Project using the Model-View-ViewModel (MV
 
 By associating the tablet to a bed, instead of a patient, we eliminated privacy concerns that could otherwise make this app much more difficult to develop and deploy.
 
-Below is a screen shot of the main page of the tablet application:
+Below is a screenshot of the main page of the tablet application:
 
 ![Screenshot Tablet 1]({{ site.baseurl }}/images/CCCScreenTablet1.png)
 
@@ -116,15 +119,14 @@ Below is a screen shot of the main page of the tablet application:
 The phone application will be installed on each healthcare worker's smartphone. Workers can log into their shift, at which time they can assign themselves to the beds they are responsible for, or a charge nurse can assign them. The phone receives a push notification from 
 the cloud application when a patient request is directed to the logged-in healthcare worker associated with this phone.
 
-We created a new Xamarin.Forms Shared Project using the Model-View-ViewModel (MVVM) methodology. 
+We created a new Xamarin.Forms Shared Project using the Model-View-ViewModel methodology. 
 
 Below are some screenshots from the mobile application: 
 
-![Screenshot Phone 1]({{ site.baseurl }}/images/CCCScreenPhone1.png)
+<img src="{{ site.baseurl }}/images/CCCScreenPhone1.png" width="400">
 
 
-![Screenshot Phone 2]({{ site.baseurl }}/images/CCCpush1.png)
-
+<img src="{{ site.baseurl }}/images/CCCpush1.png" width="400">
 
 
 **Xamarin, VSTS, and Visual Studio 2015**
@@ -136,7 +138,7 @@ To lay out the buttons for the tablet and mobile applications, we created a resp
 Xamarin.Forms allows you to customize the user interface beyond the built-in controls using [custom renderers](https://developer.xamarin.com/guides/xamarin-forms/custom-renderer/). There is also a custom component store that lets you use community-created controls quickly. In this case, we used the [Circle Image Control Plugin for Xamarin.Forms](https://github.com/jamesmontemagno/ImageCirclePlugin), which leverages custom renderers to create the circular buttons.
 The team could then add images (including high-res images) to each platform-specific project, and Xamarin.Forms manages finding the appropriate image to display for each platform.
 
-One lesson learned by the development team: In Visual Studio, always restore the project's NuGet packages from the Internet before beginning to work. Build or rebuild the solution, or right-click on your Solution explorer to restore NuGet packages. The first time, we were prompted to right-click ChoiceTabletApp.Droid to "Install Missing Feature(s)" and "Install Xamarin to build Android." In order to prepare one's development machine for the Xamarin environment, go to "Manage NuGet Packages for Solution," click the "Updates" tab, and scroll all the way down to Xamarin.Forms to check for updates.
+One lesson learned by the development team: In Visual Studio, always restore the project's NuGet packages from the Internet before beginning to work. Build or rebuild the solution, or right-click on your Solution explorer to restore NuGet packages. The first time, we were prompted to right-click ChoiceTabletApp.Droid to "Install Missing Feature(s)" and "Install Xamarin to build Android." In order to prepare one's development machine for the Xamarin environment, go to "Manage NuGet Packages for Solution," click the **Updates** tab, and scroll all the way down to Xamarin.Forms to check for updates.
 
 ![Xamarin.Forms NuGet Packages]({{ site.baseurl }}/images/CCCxam.png)
 
@@ -150,7 +152,7 @@ The team at Xamarin has done an amazing job of documenting all of the requiremen
  
 These instructions are for installing Android on a Windows 10 PC. To prepare a Mac for Xamarin development (8/iOS10/AndroidN), reference James Montemagno's documentation: [Preparing Machines for Xamarin Cycle](http://motzcod.es/post/150380059392/preparing-machines-for-xamarin-cycle).
 
-* It was not possible to run any emulators using the Windows 10 Home Edition because it does not support Hyper-V. The solution we found to this problem was to upgrade to Windows Professional.
+* It was not possible to run any emulators using the Windows 10 Home Edition because it does not support Hyper-V. The solution we found for this problem was to upgrade to Windows Professional.
 * When developing with a Surface Book or any other machine that uses a Skylake Intel processor, you must manually turn on your machine's processor compatibility for Hyper-V. 
    * [Solving issue with VS Android Emulator, Xamarin apps and Intel Skylake processor (i.e. when using a Microsoft Surface Book i7, Surface Pro 4, etc.)](https://blogs.msdn.microsoft.com/cesardelatorre/2016/02/06/solving-issue-with-vs-android-emulator-xamarin-apps-and-intel-skylake-processor-i-e-when-using-a-microsoft-surface-book-i7-surface-pro-4-etc/)
 * Sometimes, Visual Studio 2015 hangs when checking whether an emulator is already running. The Output dialog suggests it detects that the emulator is already running, but it hangs at that step and does not deploy the app. When the emulator would freeze, we had to shut down the program manually and re-launch it. (This has been reported to the Visual Studio Product Team as "Bug 69902: Visual Studio 2015 Emulator for Android Freezing.")
@@ -178,19 +180,16 @@ VSTS simplified the use and integration of the following DevOps practices:
    ![CD Azure Website .net]({{ site.baseurl }}/images/CCCVSTS4.PNG)
    
 
-As a new and small team, Choice Customer Care did not have any DevOps practices in place before the project began. CCC would need a way to easily update and maintain the back end with only one dedicated programmer on the team. This led to the team choosing the DevOps practice of continuous deployment so they could deploy to a web slot, and easily update the back-end code for the web API. We needed the back end online and accessible so that the tablet and mobile apps had a common point of communication that could access and update the database.
+As a new and small team, Choice Customer Care did not have any DevOps practices in place before the project began. CCC needed a way to easily update and maintain the back end with only one dedicated programmer on the team. This led to the team choosing the DevOps practice of continuous deployment so they could deploy to a web slot, and easily update the back-end code for the web API. We needed the back end online and accessible so that the tablet and mobile apps had a common point of communication that could access and update the database.
 
-In the value stream mapping session, the team was able to map out the product lifecycle in order to better track existing DevOps best practices, as well as have a visual represention of ongoing areas for improvement. 
+In the [**value stream mapping**](http://blog.gembaacademy.com/2008/02/24/lets-create-a-current-state-value-stream-map/) session, the team was able to map out the product lifecycle in order to better track existing DevOps best practices, as well as have a [visual representation](https://support.office.com/en-us/article/Create-a-value-stream-map-35A09801-999E-4BEB-AD4A-3235B3F0EAA3) of ongoing areas for improvement. The VSM identifies the 'Test' steps as the key areas of waste. This led to CCC distributing the app to HockeyApp as a plan for reducing manual testing.
 
 ![Value Stream Map]({{ site.baseurl }}/images/2017-01-06_CCC_VSM.JPG) 
 
 
-For example, there is currently no automated testing (written as AT on the diagram) being done on the tablet, mobile, or web service apps. Continuous deployment (CD) and release managemet (RM) may also be employed to improve the delivery of the tablet and/or mobile apps to their respective app stores.
+There is currently no automated testing (written as AT on the diagram) being done on the tablet, mobile, or web service apps. Continuous deployment (CD) and release management (RM) are currently being employed to improve the delivery of the tablet and/or mobile apps to their respective devices.
 
-For the pilot, CCC will distribute the mobile application via HockeyApp's Beta Distribution feature. Using HockeyApp, continuous integration will be also implemented for the mobile app's Xamarin code via a VSTS build definition. Reference: [How To Use HockeyApp With Visual Studio Team Services (VSTS) or Team Foundation Server (TFS)](https://support.hockeyapp.net/kb/third-party-bug-trackers-services-and-webhooks/how-to-use-hockeyapp-with-visual-studio-team-services-vsts-or-team-foundation-server-tfs).
-
-![Build Definition]({{ site.baseurl }}/images/CCCBuildDefinition.PNG)
-
+For the pilot, CCC has a plan in place to distribute the mobile application via HockeyApp's Beta Distribution feature. Using HockeyApp, continuous integration is also implemented for the mobile app's Xamarin code via a VSTS build definition. Reference: [Build Your Xamarin App](https://www.visualstudio.com/en-us/docs/build/apps/mobile/xamarin). 
 
 One lesson learned by the development team was to keep track of all passwords necessary for use in development technologies. Several passwords are used across the board; we had to keep track of tokens, secrets, numbers, usernames, and so on. One specific instance we encountered was when a team member generated a service in Azure without sharing the username and password with the rest of the team, and then went on vacation and couldn't be reached for several days. 
 
@@ -243,6 +242,57 @@ The [HockeyApp documentation](https://support.hockeyapp.net/kb/third-party-bug-t
 ![VSTS Build Definition]({{ site.baseurl }}/images/CCCHockeyApp3.png)
 
 
+Another lesson we learned during this project was that documentation online leaves out many of the required steps to connect VSTS to HockeyApp for beta distribution with Android.
+
+**Build definitions for Xamarin Android apps in VSTS**
+
+Here are some things you will need to know to connect VSTS to HockeyApp for beta distribution with Android:
+
+- **Step 1.** Go through [How to use HockeyApp with Visual Studio Team Services (VSTS) or Team Foundation Server (TFS)](https://support.hockeyapp.net/kb/third-party-bug-trackers-services-and-webhooks/how-to-use-hockeyapp-with-visual-studio-team-services-vsts-or-team-foundation-server-tfs). This will link your HockeyApp instance to Visual Studio Team Services.
+- **Step 2.**	For Android, you need to have a **signed** application to properly distribute to HockeyApp. This is critically important, and repeated again below to drive the point.
+
+  To do this the easy way:
+  
+    1. Go to the following link and skip to "Archive for Publishing" (essentially just right-click your project and select "Archive"): [Part 1 - Preparing an Application for Release](https://developer.xamarin.com/guides/android/deployment,_testing,_and_metrics/publishing_an_application/part_1_-_preparing_an_application_for_release/). 
+    
+    2. Next, create a signing identity by following: [Part 2 - Signing the Android Application Package](https://developer.xamarin.com/guides/android/deployment,_testing,_and_metrics/publishing_an_application/part_2_-_signing_the_android_application_package/).
+
+    (**Note:** If you are able to create a local archive for distribution, and it properly deploys to devices—not an emulator—through side-loading, you can validate that your locally built .apk is sanitized for building in VSTS. That is to say, if it works locally, you can make it work in VSTS.)
+
+    After you have created a signing identity, it will be located at **C:\Users\USERNAME\AppData\Local\Xamarin\Mono for Android\alias\alias.keystore**
+
+    (For additional tips on keeping the signing key secure, see [https://www.visualstudio.com/en-us/docs/build/apps/mobile/secure-certs](https://www.visualstudio.com/en-us/docs/build/apps/mobile/secure-certs).)
+    
+    In the example below, we used an alias of "test" with password "test123". The signing identity seems arbitrary, but is required to install to Android devices.
+
+    Copy the contents of your signing identity to your project and check it in (required):
+
+    ![Keystore]({{ site.baseurl }}/images/CCCkeystore.png)
+    
+
+- **Step 3.** Create a build definition in VSTS similar to the screenshots below. Reference: [Build Your Xamarin App](https://www.visualstudio.com/en-us/docs/build/apps/mobile/xamarin). 
+
+  ![VSTS Build Definition for Mobile Code]({{ site.baseurl }}/images/CCCBuildVSTS.gif)
+  
+
+- **Step 4.** If you do not sign and Zipalign your APK, it will NOT install on devices. It *may* install on emulators, but will never install on a device. This is by design in the Android OS. 
+- **Step 5.** Successful builds should now drop into HockeyApp.
+
+  ![HockeyApp Builds]({{ site.baseurl }}/images/CCCHockeyAppBuild.PNG)
+
+
+  Click a build to bring up download options:
+
+    ![HockeyApp Download]({{ site.baseurl }}/images/CCCHockeyAppDownload1.PNG)
+    
+
+  Download to your device:
+
+    ![HockeyApp Download Page]({{ site.baseurl }}/images/CCCHockeyAppDownload2.PNG)
+    
+
+- **Step 6.** On your test devices, go to [http://install.hockeyapp.net](http://install.hockeyapp.net) in your mobile browser to get the latest build right from your device. There is even an option to scan a QR code to open the download page on your phone. Enable unknown sources in your device's security settings to allow the installation of apps from sources other than the Google Play Store to do this.
+
 **Azure push notifications**
 
 After building out a basic skeleton of our Xamarin.Forms mobile app, we began work to implement push notifications by installing the plugin for Xamarin Components Push Notifications. 
@@ -251,7 +301,6 @@ We implemented a back end for the push notifications by configuring an [Azure No
 
 Visual Studio Emulators for Android do not work with push notifications, but [this tutorial](https://www.youtube.com/watch?v=AfWqwN2kcZ0) allows you to install the Google Play services GAPPS. (Note that this tutorial will not work for Android 6.0.0 Marshmallow as of the time of this writing, but it does work for 5.1.) Continuing with the video tutorial, we created a package name in our Android manifest, and found the keytool to collect our Android debug key and store pass. After this, we were able to configure and run the Android project. The Xamarin component for push notifications automatically integrates with Azure Notification Hubs Server. 
 
-
 ## General lessons 
 
 ![Some photos from the Hackfest]({{ site.baseurl }}/images/CCCphotos.png)
@@ -259,7 +308,7 @@ Visual Studio Emulators for Android do not work with push notifications, but [th
 
 ### Entity Framework
 
-Implementing many-to-many relationships in Entity Framework proved to be a challenge. On multiple occasions, linking objects in the webAPI would cause a copy of an already-existing object to be added to the database. Through testing and research, we found that this is an issue common to Entity Framework that can be alleviated either by attaching the already existing object to the database, which had mixed results, or altering the method of discovering the already existing object. In our case, changing a passed object reference to a renewed call to Find() using an ID solved the issue.
+Implementing many-to-many relationships in Entity Framework proved to be a challenge. On multiple occasions, linking objects in the webAPI would cause a copy of an already existing object to be added to the database. Through testing and research, we found that this is an issue common to Entity Framework that can be alleviated either by attaching the already existing object to the database, which had mixed results, or altering the method of discovering the already existing object. In our case, changing a passed object reference to a renewed call to Find() using an ID solved the issue.
 
 ![Whiteboard]({{ site.baseurl }}/images/CCCWhiteboard.png)
 
@@ -274,14 +323,14 @@ Intellisense in Xamarin.Forms code does not work in Visual Studio 2015. One work
 
 ### VSTS permissions
 
-Martin Schray and Kevin Remde helped us with DevOps, but both of them needed special permissions in VSTS that took us a while to find and grant to them. The trick to doing this is to click the "Users" tab next to Home, which will bring you to a *"_user"* page, such as at *https://choicecare.visualstudio.com/_user*. Note the screenshot below:
+Martin Schray and Kevin Remde helped us with DevOps, but both of them needed special permissions in VSTS that took us a while to find and grant to them. The trick to doing this is to click the **Users** tab next to Home, which will bring you to a *"_user"* page, such as at *https://choicecare.visualstudio.com/_user.* Note the screenshot below:
 
 ![VSTS User Permissions]({{ site.baseurl }}/images/CCCVSTS2.png) 
 
 
 ### Emulators
 
-When developing and testing our mobile app, sometimes it would crash unexpectedly. We only encountered this issue in the Android emulator. A workaround we found for this was to uninstall the app on the Android emulator device before re-launching. Simply rebuilding and deploying did not work.
+When developing and testing our mobile app, sometimes it would crash unexpectedly. We only encountered this issue in the Android emulator. A workaround we found for this was to uninstall the app on the Android emulator device before relaunching. Simply rebuilding and deploying did not work.
 
 ## Conclusion
 
@@ -289,17 +338,15 @@ When developing and testing our mobile app, sometimes it would crash unexpectedl
 
 - Microsoft's engagement with Choice Customer Care has resulted in a tablet app, a mobile app, and a Web API connected to an Azure SQL database.
 - The Xamarin cross-platform implementation will allow Choice Customer Care to begin beta testing with a real emergency room in Hospital Sisters Health System (HSHS) St. Francis Hospital, in Effingham, Illinois, on January 17, 2017. 
-- Adding DevOps best practices for their initial work, as well as using the value stream map (VSM) to identify future areas for improvement in their development lifecylce, will give Choice Customer Care not only a good idea of where they are, but where they may want to go to better improve their SDL efficiencies.
-- Expected impact from this project will be improved patient satisfaction scores in hospital partners, which will be measured during the beta in January, using hospital consumer assessments of healthcare providers and systems, surveys such as [http://www.pressganey.com](http://www.pressganey.com) and [http://www.hcahpsonline.org/home.aspx](http://www.hcahpsonline.org/home.aspx), as well as distributing their own surveys before, during, and after the beta for more immediate results. 
+- Adding DevOps best practices for their initial work, as well as using the value stream map (VSM) to identify future areas for improvement in their development lifecycle, will give Choice Customer Care not only a good idea of where they are, but where they may want to go to better improve their SDL efficiencies.
+- Expected impact from this project will be improved patient satisfaction scores in hospital partners, which will be measured during the beta in January, using hospital consumer assessments of healthcare providers and systems, surveys such as [www.pressganey.com](http://www.pressganey.com) and [www.hcahpsonline.org/home.aspx](http://www.hcahpsonline.org/home.aspx), as well as distributing their own surveys before, during, and after the beta for more immediate results. 
 
 ### Opportunities going forward
 
-- **Authentication.** One of the next steps for the app is to provide authentication, which will allow storing unique user state and profiles for the healthcare workers using the app. CCC plans on implementing authentication using [Azure Active Directory (AAD) Business to Consumer (B2C)](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native/) by integrating it into the Xamarin.Forms app using the Microsoft Authentication Library (MSAL), which is available as a NuGet package. 
-- **HIPAA compliance.** In the healthcare industry, privacy and confidentiality are crucial. Choice Customer Care is built for healthcare professionals dealing with patient information, so it is critical that their solution adheres to the Health Insurance Portability and Accountability Act (HIPAA). We built an implementation that is using Azure services that are in scope for HIPAA and the HITECH Act through the Microsoft Business Associate Agreement. For more information, read the Microsoft Trust Center document on [HIPAA](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA).
+- **Authentication.** One of the next steps for the app is to provide authentication, which will allow storing unique user state and profiles for the healthcare workers using the app. CCC plans to implement authentication using [Azure Active Directory (AAD) Business to Consumer (B2C)](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native/) by integrating it into the Xamarin.Forms app using the Microsoft Authentication Library (MSAL), which is available as a NuGet package. 
+- **HIPAA compliance.** In the healthcare industry, privacy and confidentiality are crucial. Choice Customer Care is built for healthcare professionals dealing with patient information, so it is critical that its solution adheres to the Health Insurance Portability and Accountability Act (HIPAA). We built an implementation that is using Azure services that are in scope for HIPAA and the HITECH Act through the Microsoft Business Associate Agreement. For more information, read the Microsoft Trust Center document on [HIPAA](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA).
 - **Scale.** This solution was designed to support an industry with thousands of locations around the globe. In order to match this addressable market, it's important that the back-end solution can scale to meet the demand as more users and hospitals come online. We selected Azure services that with dynamic load-scaling features, such as [Azure SQL](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-scale-on-the-fly), can scale up or down based on workload. Going forward, CCC is building an implementation test plan that includes these services. 
  
-
-> [Sentimental farewells to Alicia Avril's Xamarin app project, Choice Customer Care; STELLAR teammates David Giard, Oren Novotny, & Eric Rozell!](https://twitter.com/Saelia/status/804755586458025984/photo/1) *- Sarah Sexton, primary Tech Evangelist*
 
 <img src="{{ site.baseurl }}/images/CCCtweet10.png" width="600">
 
@@ -308,6 +355,7 @@ When developing and testing our mobile app, sometimes it would crash unexpectedl
 * Complete demo video:
 
 ![Video Image]({{ site.baseurl }}/images/CCCDemoVideo.gif) 
+
 
 ## Additional resources
 
@@ -320,7 +368,7 @@ A list of links to resources that complement our story:
   - [Enhanced User Notifications](https://developer.xamarin.com/guides/ios/platform_features/introduction-to-ios10/user-notifications/enhanced-user-notifications/) 
   - [How to use HockeyApp with Visual Studio Team Services (VSTS)](https://support.hockeyapp.net/kb/third-party-bug-trackers-services-and-webhooks/how-to-use-hockeyapp-with-visual-studio-team-services-vsts-or-team-foundation-server-tfs#dashboard-widget-vsts-only-)
   - [Authenticating Users with Azure Mobile Apps](https://developer.xamarin.com/guides/xamarin-forms/web-services/authentication/azure/)
-
+  - [Build Your Xamarin App](https://www.visualstudio.com/en-us/docs/build/apps/mobile/xamarin) 
 
 - Blog posts
 
@@ -328,7 +376,6 @@ A list of links to resources that complement our story:
   - [Enhanced Notifications in Android N with Direct Reply](https://blog.xamarin.com/enhanced-notifications-in-android-n-with-direct-reply/)
   - [Gavin Bauman: "HockeyApp for Xamarin.Forms? No Problem!"](http://theothergavin.net/hockey-app-for-xamarin-forms-no-problem/)
   - [Sarah Sexton's Video: HockeyApp in Xamarin.Forms](https://channel9.msdn.com/Blogs/raw-tech/HockeyApp-in-XamarinForms)
-
 
 - GitHub repos
 

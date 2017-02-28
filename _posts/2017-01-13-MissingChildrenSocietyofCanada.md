@@ -40,8 +40,7 @@ The goal of the 4-day project was to enable MCSC to use automated Azure function
 
 To support youth helping youth via tech, the team also included representatives from the Silicon Halton Tech Under 20 user group and a Microsoft Student partner. 
 
-![Photo montage: team members; sign, badge, and logo of Calgary Police Service; logos of MCSC, City of Calgary, and Microsoft]({{ site.baseurl }}/images/MissingChildrenSocietyofCanada/image1.png)
-
+<img alt="Photo montage: team members; sign, badge, and logo of Calgary Police Service; logos of MCSC, City of Calgary, and Microsoft" src="{{ site.baseurl }}/images/MissingChildrenSocietyofCanada/image1.png" width="960">
 
 ## Customer profile ##
 For 30 years, [Missing Children Society of Canada](http://mcsc.ca/) has provided help and support for families with missing children. Their programs serve families and law enforcement in the critical hours after a child goes missing. MCSC has three main programs of service: Investigations, Family Support, and the Search Program.
@@ -54,11 +53,11 @@ In meeting with Amanda and the team at MCSC, we learned challenges in acquiring 
 
 The team at Microsoft Canada brainstormed a way to help quicken the research process. Our goal was to automate the research conducted online by extracting data directly from the missing child’s social-media account. 
 
-![Whiteboard with notes and diagram]({{ site.baseurl }}/images/MissingChildrenSocietyofCanada/image2.jpg)
+<img alt="Whiteboard with notes and diagram" src="{{ site.baseurl }}/images/MissingChildrenSocietyofCanada/image2.jpg" width="720">
 
 The first half day was spent establishing mapping of the current delivery of information to police after a child is abducted. 
 
-![High-level flowchart of entire process]({{ site.baseurl }}/images/MissingChildrenSocietyofCanada/image3.png)
+<img alt="High-level flowchart of entire process" src="{{ site.baseurl }}/images/MissingChildrenSocietyofCanada/image3.png" width="840">
 
 The plan established was as follows:
 
@@ -108,7 +107,7 @@ DevOps practices
 
 The child (or a parent on behalf of the child) registers a social-media account via the [Missing Children Society of Canada web page](http://mcsc-authorization-dev.azurewebsites.net/), ensuring that no one is tracked unless he or she wants to be. This was developed as a Node.js application named “authorization” and is currently connected to Twitter.
 
-![Flowchart of components]({{ site.baseurl }}/images/MissingChildrenSocietyofCanada/image5.png)
+<img alt="Flowchart of components" src="{{ site.baseurl }}/images/MissingChildrenSocietyofCanada/image5.png" width="840">
 
 Alongside this is an Azure Logic App that listens for tweets that contain the hashtag #hfm. When the app finds one, it adds the tweet to a Service Bus queue.
 
@@ -168,7 +167,7 @@ This exercise is typically conducted against an existing set of processes and ac
 
 A new GitHub organization was created and multiple repositories were added to facilitate multiple teams working on the project. The org can be found at [https://github.com/CDN-Missing-Children-Hack](https://github.com/CDN-Missing-Children-Hack)
 
-![Screen shot of CDN-Missing-Children-Hack repository on GitHub]({{ site.baseurl }}/images/MissingChildrenSocietyofCanada/image6.png)
+<img alt="Screen shot of CDN-Missing-Children-Hack repository on GitHub" src="{{ site.baseurl }}/images/MissingChildrenSocietyofCanada/image6.png" width="720">
 
 The repos added to the org are as follows:
 
@@ -189,7 +188,7 @@ We implemented four continuous-integration streams via Visual Studio Team Servic
 - authorization-ci
 - Infra-DEV-CI
 
-![Screen shot of build definitions in Visual Studio Team Services]({{ site.baseurl }}/images/MissingChildrenSocietyofCanada/image7.png)
+<img alt="Screen shot of build definitions in Visual Studio Team Services" src="{{ site.baseurl }}/images/MissingChildrenSocietyofCanada/image7.png" width="960">
 
 Each of these build definitions include the tasks to generate proper builds, including npm, gulp, Grunt, and others based on language and build type. The Xamarin client apps were deployed via HockeyApp from Visual Studio Team Services.
 
@@ -197,14 +196,13 @@ Each of these build definitions include the tasks to generate proper builds, inc
 
 Four release-management queues were created to allow the team to produce software in short cycles, ensuring that the software can be reliably released at any time. It aims to build, test, and release software faster and more frequently. HockeyApp provided additional flexibility by delivering apps directly to devices without the need of submitting the client app to a mobile store. The approach helps reduce the cost, time, and risk of delivering changes by allowing for more incremental updates to applications in production. 
 
-![Screen shot of release definitions in Visual Studio Team Services]({{ site.baseurl }}/images/MissingChildrenSocietyofCanada/image8.png)
+<img alt="Screen shot of release definitions in Visual Studio Team Services" src="{{ site.baseurl }}/images/MissingChildrenSocietyofCanada/image8.png" width="720">
 
 #### Infrastructure as Code ####
 
 The infrastructure for the solution was created by using a series of JSON templates that are used to deploy the environment and the other components that the solution requires. The JSON templates are checked in to the GitHub infrastructure repo and are subject to the same build and release management process as the rest of the solution code. Following the process provides consistency of deployment in a development, testing, or production resource group.
 
-![Screen shot of infrastructure release definition in Visual Studio Team Services]({{ site.baseurl }}/images/MissingChildrenSocietyofCanada/image9.png)
-
+<img alt="Screen shot of infrastructure release definition in Visual Studio Team Services" src="{{ site.baseurl }}/images/MissingChildrenSocietyofCanada/image9.png" width="960">
  
 ## Conclusion ##
 
@@ -212,11 +210,7 @@ The team successfully developed the registration for self-identification, the da
 
 With these components in place, the MCSC team can now start building out and improving the services rapidly. Because all features were built alongside a DevOps pipeline, improving and adding more value is much more streamlined.
 
-![Screen shot showing MSC.IRIS icon on mobile device]({{ site.baseurl }}/images/MissingChildrenSocietyofCanada/image10.png)
-
-![Screen shot of login page of mobile app]({{ site.baseurl }}/images/MissingChildrenSocietyofCanada/image11.png)
-
-![Screen shot of Cases page of mobile app]({{ site.baseurl }}/images/MissingChildrenSocietyofCanada/image12.png)
+<img alt="Screen shots of mobile app" src="{{ site.baseurl }}/images/MissingChildrenSocietyofCanada/image10.png" width="960">
 
 In addition, during the innovation workshop the team successfully extracted GPS data from Twitter and Facebook and presented that data in the Xamarin application.
  

@@ -2,7 +2,7 @@
 layout: post
 title:  "Add title with customer name here"
 author: "Add author name here"
-author-link: "#"
+author-link: "# Include twitter link here"
 #author-image: "{{ site.baseurl }}/images/authors/photo.jpg"
 date:   2016-05-19
 categories: [IoT]
@@ -41,7 +41,7 @@ This section will contain general information about the customer, including the 
 
 This section will define the problem(s)/challenges that the customer wants to address with an IoT solution. Include things like costs, customer experience, etc.
  
-*If you’d really like to make your write-up pop, include a customer quote that highlights the customer’s problem(s)/challenges.*
+*If you’d really like to make your write-up pop, include a customer quote that highlights the customer’s problem(s)/challenges. Attribute all quotes with Name, Title, Company.*
 
 
  
@@ -72,7 +72,7 @@ This section should include the following details:
 
  Note that capitalization of the file name and the file extension must match exactly for the images to render properly.
 
-*If you’d really like to make your write-up pop, include a customer quote that highlights the solution.*
+*If you’d really like to make your write-up pop, include a customer quote that highlights the solution. Attribute all quotes with Name, Title, Company.*
 
 
 ## Technical delivery ##
@@ -81,6 +81,10 @@ This section will include the following details of how the solution was implemen
 - Security details
 
 - Device used (be specific, details if PLC, microcontroller, etc.)
+	- **IoT Device Information:**
+
+
+		Customer had X design their devices for them, which were manufactured by Y.  The device has X MB/KB’s of memory, X GB/MB of storage and uses (line/battery) power and X for connectivity.  It is running (Firmware | RTOS | Linux | Windows IoT | Other).  They are using the (Azure IoT Device SDK | Azure IoT Gateway SDK) and writing their device app in (Node | Java | C# | C | Python)
 
 - Device messages sent (packet size, frequency of send/day/device, number of messages)
 
@@ -110,7 +114,7 @@ This section will briefly summarize the technical story with the following detai
 
   - Details on how the customer plans to proceed or what more they hope to accomplish.
 
-*If you’d really like to make your write-up pop, include a customer quote highlighting impact, benefits, general lessons, and/or opportunities.*
+*If you’d really like to make your write-up pop, include a customer quote highlighting impact, benefits, general lessons, and/or opportunities. Attribute all quotes with Name, Title, Company.*
 
 
 ## Additional resources ##
