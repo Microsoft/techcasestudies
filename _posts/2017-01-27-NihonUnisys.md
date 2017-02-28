@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Nihon Unisys Ltd | Unisys solution for IoT Manufacturing Industry"
+title:  "Building IoT solutions for Manufacturing Industry with Nihon Unisys"
 author: "Hiroyuki Watanabe"
 author-link: "#"
 #author-image: "{{ site.baseurl }}/images/authors/photo.jpg"
@@ -8,7 +8,7 @@ date:   2017-01-27
 categories: [IoT]
 color: "blue"
 #image: "{{ site.baseurl }}/images/imagename.png" #should be ~350px tall
-excerpt: Add a short description of what this article is about, helping a fellow developer understand why they would want to read it. What value will they get out of reading it? Focus on the problem or technologies and let that be the guiding light.
+excerpt: In this IoT Hackfest, Microsoft worked with Nihon Unisys to develop an IoT solution for Manufacturing Industry using Azure Data Factory, Azure ML and Power BI.
 language: The language of the article (e.g.: [English])
 verticals: The vertical markets this article has focus on (e.g.: [Manufacturing & Resources])
 ---
@@ -55,7 +55,7 @@ Nihon Unisys and Microsoft DX teams at the hackfest
 ## Problem statement ##
 
 
-- Business Problem: They are SI for Manufacturing industry. They would like to create a standard (modeling) method for utilizing it for proposing Azure IoT solution to customers in manufacturing industry. Especially, they would like to find out what Azure ML can do. For data analysis, there is another department using R Language. They would like to find out whether it is possible to collaborate with the analysis result and Azure ML.  
+- Business Problem: They are SI for Manufacturing industry. They would like to create a standard (modeling) method for utilizing it for proposing Azure IoT solution to customers in manufacturing industry. Especially, they would like to find out what Azure ML can do. For data analysis, there is another department using R Language. They would like to find out whether it is possible to collaborate with the analysis result and Azure ML. This IoT solutions standard modeling method for Manufacturing Industry saves time and cost of Unisys to deliver IoT solution to customer.
  
 - There are three technical problems they would like to resolve during this Hackfest. 
 
@@ -107,7 +107,7 @@ This section will include the following details of how the solution was implemen
 
  
 ## Conclusion ##
-
-Nihon Unisys was able to deepen their knowledge of Azure Data Factory, Azure ML and Power BI through Hackfest. Thye have built their IoT solution using Microsoft IoT Technology and they can speed up their preparation of their proposal for their customer in Manufacturing Industry.
+Manufacturing Industry need to consider a lot of works to introduce IoT solutions. For example, they need to consider sections on each technology used in code artifacts, device details, code language, device security, data communication and so on. 
+Nihon Unisys has a deep knowledge and experience of introducing IoT solution for manufacturing industry. And they were able to deepen their knowledge of Azure Data Factory, Azure ML and Power BI through Hackfest. Thye have built their IoT solution using Microsoft IoT Technology and they can speed up their preparation of their proposal for their customer in Manufacturing Industry.
 
 
