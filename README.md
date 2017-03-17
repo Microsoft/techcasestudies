@@ -6,6 +6,6 @@ Create a Pull Request when you think that you have evidence that is ready for pu
 
 Please visit the [Microsoft Technical Case Studies page](https://microsoft.github.io/techcasestudies) for HTML friendly versions of the evidence in this repo. 
 
- 
+[https://microsoft.github.io/techcasestudies/](https://microsoft.github.io/techcasestudies/)
 
 
