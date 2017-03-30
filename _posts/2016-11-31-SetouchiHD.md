@@ -25,7 +25,7 @@ Sky Trek is a membership service for travel, including amphibious aircraft. They
 
 Key technologies used:
 
-  * Web Apps and API Apps features of Azure with C# (infrastructure as code)
+  * Web Apps and API Apps features of Azure with C# (Infrastructure as Code)
   * Visual Studio Team Services (CI/CD and release management)
   * Swift (iOS), TestFlight, and *fastlane* (mobile DevOps)
   * Goal integration with Visual Studio Team Services (telemetry)
@@ -107,9 +107,9 @@ However, this raises the noisy neighbor problem. Naoki Sato provided the solutio
 
 ![App Service plans]({{ site.baseurl }}/images/2016-11-31-SetouchiHD/AppServicePlan.jpg)
 
-As a practice of infrastructure as code, we use an Azure Resource Manager template after finishing configuration of resources via the Azure portal. (See [Authoring Azure Resource Manager templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates) for more information.) Before deployemnt, we can download the template and the deployment script.
+As a practice of Infrastructure as Code, we use an Azure Resource Manager template after finishing configuration of resources via the Azure portal. (See [Authoring Azure Resource Manager templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates) for more information.) Before deployemnt, we can download the template and the deployment script.
 
-![Infrastructure as code]({{ site.baseurl }}/images/2016-11-31-SetouchiHD/IaC.png)
+![Infrastructure as Code]({{ site.baseurl }}/images/2016-11-31-SetouchiHD/IaC.png)
 
 <img alt="Downloaded scripts" src="{{ site.baseurl }}/images/2016-11-31-SetouchiHD/IaC2.png" width="384">
 
