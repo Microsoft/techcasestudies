@@ -36,7 +36,7 @@ Microsoft and Alterbooth conducted a joint hackfest to introduce DevOps practice
 3. SaaS, ASP service, and IT product planning, development, and operation.
 4. Any business related to the above areas.
 
-Alterbooth has just started work on a new solution, *[MySauce Factory](https://mysaucefactory.com/)*, currently in beta. It allows customers to order original and customized sauces from the MySauce Factory website. Consumers select a base sauce and customize it with increasing/decreasing flavors—for example, they can adjust the level of sweet and sour, oil, vinegar, or onion.
+Alterbooth has just started work on a new solution, *[MySauceFactory](https://mysaucefactory.com/)*, currently in beta. It allows customers to order original and customized sauces from the MySauceFactory website. Consumers select a base sauce and customize it with increasing/decreasing flavors—for example, they can adjust the level of sweet and sour, oil, vinegar, or onion.
 
 Although still in beta operation now, customers can buy the original sauce. Alterbooth plans to release the solution in March 2017.
 
